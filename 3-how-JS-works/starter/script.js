@@ -116,15 +116,15 @@ var john = {
     calculateAge: function() {
         // This reffering to this object john.
         console.log(this);
-        console.log(2016 - this.yearOfBirth);
+        console.log(2019- this.yearOfBirth);
 
         // = window object is still a normal function although inside
         // a obeject with a function.
         // DOES not poiny to the joh object like the other "this" word.
-        const innerFunction =() =>{
-            console.log(this);
-        }
-        innerFunction();
+        // const innerFunction =() =>{
+        //     console.log(this);
+        // }
+        // innerFunction();
     }
 }
 
@@ -137,4 +137,8 @@ const mike = {
     yearOfBirth : 1984
 }
 
-//  Merhod borrowing -> use johns method(above) for mikes object
+//  Method borrowing -> use johns method(above) for mikes object
+
+// No perentheses necessary. 
+mike.calculateAge = john.calculateAge;
+mike.calculateAge();
