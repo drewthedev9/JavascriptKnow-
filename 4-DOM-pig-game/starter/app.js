@@ -9,7 +9,8 @@ GAME RULES:
 
 */
 //  shorthand way of using many variables.
- var scores, roundScores, activeplayer, dice;
+ var scores, roundScores, activeplayer, 
+//  dice;
 
  scores = [0,0];
  roundScore = 0;
@@ -25,14 +26,44 @@ console.log(dice);
 // SETTER.
 // inner HTML can chnge an HTML element or in thsis case add. textContent cannot do this it only works on text.
 // would have added the <em></em>
-document.querySelector('#current-' + activePlayer).innerHTML ='<em>' +  dice + '</em>' ;
+// document.querySelector('#current-' + activePlayer).innerHTML ='<em>' +  dice + '</em>' ;
 
 // GETTER.
 //  reads teh html text insode the elementid current-o in the HTML // 43
-var x = document.querySelector('#score-0').textContent; 
-console.log(x);
+// var x = document.querySelector('#score-0').textContent; 
+// console.log(x);
 
-//  style changer.
-document.querySelector('.dice').style.display = 'none';
+//  style changer. inline style in the HTML.
+// document.querySelector('.dice').style.display = 'none';
+
+// function btn() {
+//     // do something here.
+// }
+// btn();
+
+//  set all values to 0 in the HTML. for the start of game using 
+// getElementId
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
 
 
+//  Call back function - a function in another function called as a paremter
+// of that function. the event listener will cal the btn function.
+
+// anonymous function - a function with out a name. usually not on the outside
+// of the code. like the btn function above.
+// like the one in event listener.
+
+document.querySelector('.btn-roll').addEventListener('click', function(){
+// 1.random number.
+var dice = Math.floor(Math.random() * 6) + 1;
+// display the result.
+var diceDOM = document.querySelector('.dice')
+diceDOM.style.display = 'block';
+diceDOM.src = 'dice-' + dice + '.png';
+// update the round score only If they havent rolled a 1.
+
+
+});
