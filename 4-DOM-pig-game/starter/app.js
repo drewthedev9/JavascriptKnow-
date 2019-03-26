@@ -8,11 +8,31 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-
-const scores, roundScores, activeplayer, dice;
+//  shorthand way of using many variables.
+ var scores, roundScores, activeplayer, dice;
 
  scores = [0,0];
  roundScore = 0;
-activePlayer = 0;
+activePlayer = 1;
 
-dice = 6;
+// math object with random 
+dice = Math.floor(Math.random() * 6) + 1;
+console.log(dice);
+
+// Score-0 is the id in teh HTML. then change the text ( textContent) withe dice variable above.
+// document.querySelector('#current-' + activePlayer).textContent = dice;
+
+// SETTER.
+// inner HTML can chnge an HTML element or in thsis case add. textContent cannot do this it only works on text.
+// would have added the <em></em>
+document.querySelector('#current-' + activePlayer).innerHTML ='<em>' +  dice + '</em>' ;
+
+// GETTER.
+//  reads teh html text insode the elementid current-o in the HTML // 43
+var x = document.querySelector('#score-0').textContent; 
+console.log(x);
+
+//  style changer.
+document.querySelector('.dice').style.display = 'none';
+
+
