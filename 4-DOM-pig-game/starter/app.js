@@ -86,11 +86,15 @@ document.getElementById('current-0').textContent = '0';
 document.getElementById('current-1').textContent = '0';
 // Removing and adding classes with Javascript.
 // selects player-0-panel and removes the active class.
-document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-0-panel').classList.toggle('active');
 // then slects teh payer 1 panel and adds lcasslist active.
-document.querySelector('.player-1-panel').classList.add('active');
+document.querySelector('.player-1-panel').classList.toggle('active');
 
+// document.querySelector('.player-0-panel').classList.remove('active');
+// document.querySelector('.player-1-panel').classList.add('active');
 
+// takes the dice away when 1 is rolled.
+document.querySelector('.dice').style.display = 'none';
 }
 
 
