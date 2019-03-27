@@ -9,12 +9,12 @@ GAME RULES:
 
 */
 //  shorthand way of using many variables.
- var scores, roundScores, activeplayer, 
+ var scores, roundScore, activePlayer, 
 //  dice;
 
  scores = [0,0];
  roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
 
 // math object with random 
 dice = Math.floor(Math.random() * 6) + 1;
@@ -64,6 +64,34 @@ var diceDOM = document.querySelector('.dice')
 diceDOM.style.display = 'block';
 diceDOM.src = 'dice-' + dice + '.png';
 // update the round score only If they havent rolled a 1.
+
+if (dice !== 1 ){
+    // add score to the variable roundScore above.
+    roundScore += dice;
+    document.querySelector('#current-' + activePlayer).textContent = roundScore;
+} else {
+    // Next player
+    // ternary operator.
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    //  Rese rpundscore to 0 when activePlayer = 0;
+    roundScore = 0;
+    // Same as above
+    // if (activePlayer === 0) {
+    //     activePlayer = 1;
+    // } else {
+    //     activeplayer = 0;
+    // }
+
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+// Removing and adding classes with Javascript.
+// selects player-0-panel and removes the active class.
+document.querySelector('.player-0-panel').classList.remove('active');
+// then slects teh payer 1 panel and adds lcasslist active.
+document.querySelector('.player-1-panel').classList.add('active');
+
+
+}
 
 
 });
