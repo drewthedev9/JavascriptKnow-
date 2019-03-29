@@ -70,32 +70,54 @@ if (dice !== 1 ){
     roundScore += dice;
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
 } else {
-    // Next player
-    // ternary operator.
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    //  Rese rpundscore to 0 when activePlayer = 0;
-    roundScore = 0;
-    // Same as above
-    // if (activePlayer === 0) {
-    //     activePlayer = 1;
-    // } else {
-    //     activeplayer = 0;
-    // }
-
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-// Removing and adding classes with Javascript.
-// selects player-0-panel and removes the active class.
-document.querySelector('.player-0-panel').classList.toggle('active');
-// then slects teh payer 1 panel and adds lcasslist active.
-document.querySelector('.player-1-panel').classList.toggle('active');
-
-// document.querySelector('.player-0-panel').classList.remove('active');
-// document.querySelector('.player-1-panel').classList.add('active');
-
-// takes the dice away when 1 is rolled.
-document.querySelector('.dice').style.display = 'none';
+  nextplayer();
 }
 
 
 });
+
+document.querySelector('.btn-hold').addEventListener('click',function(){
+    // Add CURRENT score to global score.
+    scores[activePlayer] += roundScore;
+    // update UI 
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+    // check if player won the game.
+    if (scores[activePlayer] >= 20){
+        document.querySelector('#name-' + activePlayer).textContent = 'WINNER!';
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    } else {
+         // next player
+        nextplayer();
+    }
+
+   
+
+});
+
+
+// Net Player funtion.
+function nextplayer(){
+     // Next player
+    
+     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+     //  Reset rpundscore to 0 when activePlayer = 0;
+     roundScore = 0;
+    
+ document.getElementById('current-0').textContent = '0';
+ document.getElementById('current-1').textContent = '0';
+ // Removing and adding classes with Javascript.
+ // selects player-0-panel and removes the active class.
+ document.querySelector('.player-0-panel').classList.toggle('active');
+ // then selects the payer1 panel and adds classlist active. 
+//  adding a different class to a html element swapping its style.
+ document.querySelector('.player-1-panel').classList.toggle('active');
+ 
+ // document.querySelector('.player-0-panel').classList.remove('active');
+ // document.querySelector('.player-1-panel').classList.add('active');
+ 
+ // takes the dice away when 1 is rolled.
+ document.querySelector('.dice').style.display = 'none';
+
+}
