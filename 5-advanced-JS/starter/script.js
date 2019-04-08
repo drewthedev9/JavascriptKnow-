@@ -34,3 +34,8 @@ console.log(mark.lastName);
 //  Can use in the console objoect.hasOenProperty('property')
 // for example john.hasOwnProperty('job') if so console will prit true
 // if the object has a property called john.
+// instanceOf = checks object is and instance of a constructor
+// ex. john instanceof Person = true.
+// If you want to check the info of something in console use console.info(oibject)
+// you could have an array = x = [1,2,3,4,];
+// so use console.info(x) -> will give you indfo about the object.
