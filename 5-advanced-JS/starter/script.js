@@ -29,3 +29,8 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
+
+// inspecting objects with the console
+//  Can use in the console objoect.hasOenProperty('property')
+// for example john.hasOwnProperty('job') if so console will prit true
+// if the object has a property called john.
