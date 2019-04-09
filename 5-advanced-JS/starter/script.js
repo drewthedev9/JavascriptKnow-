@@ -1,4 +1,4 @@
-var john = {
+/*var john = {
     name: 'John',
     yearOfBirth: 1990,
     job: 'teacher'
@@ -39,3 +39,25 @@ console.log(mark.lastName);
 // If you want to check the info of something in console use console.info(oibject)
 // you could have an array = x = [1,2,3,4,];
 // so use console.info(x) -> will give you indfo about the object.
+*/
+
+// Onject.create method. Another way for inheritance.
+var personProto = {
+    calculateAge: function (){
+        console.log (2019 - yearOfBirth);
+    }
+
+}
+
+// builds an object direct from the argument you pass into the onject.
+var john = Object.create(personProto);
+// hard way to fill in object
+john.name ='john';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+var jane = Object.create(personProto, {
+    name: {value:'jane'}, 
+    yearOfBirth: {value:1969},
+    job: {value: 'designer'}
+})
