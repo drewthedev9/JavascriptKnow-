@@ -106,7 +106,8 @@ console.log(obj.city); //san fransisco
 // check in lesson 64 - Primitives and objects. 3rd book mark
 */
 
-// functions. ->// an array with calcuated ages
+// functions. ->// an array with calcuated ages 
+// function saccepting functions as inputs.
 
 var years =[1990 , 1965, 1937, 2005, 1998];
 
@@ -138,10 +139,16 @@ const isFulllAge=(el)=>{
 }
 
 // max heart rate function 
-const maxHeartRate =()=> {
-    // rounds to the closest integer.
+const maxHeartRate =(el)=> {
+
+    if (el >= 18 && el <= 81){
+             // rounds to the closest integer.
     // numbers are the max heart rate formula
     return Math.round (206.9 - (0.67 * el));
+    } else {
+        return -1;
+    }
+   
 }
 
 // uses calculateAge as a call back function for the fn() function in arrayCalc().
@@ -150,7 +157,32 @@ var ages = arrayCalc(years, calculateAge);
 // function return an array if ages are older than 18. COOL!
 var fullAges = arrayCalc(ages,isFulllAge);
 
-
+// var for maxHeartrate.
+var rates = arrayCalc(ages, maxHeartRate);
 
 console.log(ages);
 console.log(fullAges);
+console.log(rates);
+
+//  Functions returning functions
+//  funstions in javascript are first class functions because they are objects.
+
+const interviewQuestion=(job)=> {
+    if (job === 'designer'){
+        return function(name){
+            console.log(name + ', can you please explain what youur UX design is?');
+        }
+    } else if ( job === 'teacher'){
+        return function(name) {
+            console.log(name = 'What subject do you teach' +  name + '?');
+        } 
+    } else {
+        return function(name){
+            cosnole.log('Hello' + name + 'what do you do?');
+        } 
+    }
+
+}
+var teacherQuestion = interviewQuestion('teacher');
+
+teacherQuestion('john')
