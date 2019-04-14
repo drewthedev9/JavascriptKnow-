@@ -1,6 +1,6 @@
 
 
-/
+
 
 // functions. ->// an array with calcuated ages 
 // functions accepting functions as arguments.
@@ -62,7 +62,35 @@ console.log(rates);
 
 
 
+//  Functions returning functions => FIRST CLASS FUNCTIONS. 
+//  funCtions in javascript are first class functions because they are objects.
 
+const interviewQuestion=(job)=> {
+    if (job === 'designer'){
+        return function(name){
+            console.log(name + ', can you please explain what youur UX design is?');
+        }
+    } else if ( job === 'teacher'){
+        return function(name) {
+            console.log(name = 'What subject do you teach ' +  name + '?');
+        } 
+    } else {
+        return function(name){
+            cosnole.log('Hello' + name + 'what do you do?');
+        } 
+    }
 
+}
 
+// can write one generic function above and run diffrent functions from it
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+
+// have a more specific fuction with this one.
+teacherQuestion('john');
+designerQuestion('emily');
+
+// 0quickway of doing the two steps from above.
+// looks a bit different but works.
+interviewQuestion('teacher')('mark');
 
