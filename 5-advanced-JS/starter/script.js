@@ -150,7 +150,7 @@ const maxHeartRate =(el)=> {
     }
    
 }
-
+/*
 // uses calculateAge as a call back function for the fn() function in arrayCalc().
 var ages = arrayCalc(years, calculateAge);
 
@@ -164,8 +164,8 @@ console.log(ages);
 console.log(fullAges);
 console.log(rates);
 
-//  Functions returning functions
-//  funstions in javascript are first class functions because they are objects.
+//  Functions returning functions => FIRST CLASS FUNCTIONS. 
+//  funCtions in javascript are first class functions because they are objects.
 
 const interviewQuestion=(job)=> {
     if (job === 'designer'){
@@ -195,3 +195,29 @@ designerQuestion('emily');
 // 0quickway of doing the two steps from above.
 // looks a bit different but works.
 interviewQuestion('teacher')('mark');
+
+*/
+
+// IIFE used for data pricvacy
+
+// function game (){
+//     var score = Math.random() + 10;
+//     console.log(score >= 5);
+// }
+
+// game();
+
+// heres the IIFE statement.
+( function (){
+    var score = Math.random() + 10;
+    console.log(score >= 5);
+}) ();
+
+( function (goodLuck){
+    var score = Math.random() + 10;
+    console.log(score >= 5 -
+    goodLuck);
+}) (5);
+
+
+
