@@ -33,22 +33,6 @@ retirementIceland(1990);
 
 // rewrite jobinterview fucntion as closure
 
-// const interviewQuestion=(job)=> {
-//     if (job === 'designer'){
-//         return function(name){
-//             console.log(name + ', can you please explain what youur UX design is?');
-//         }
-//     } else if ( job === 'teacher'){
-//         return function(name) {
-//             console.log(name = 'What subject do you teach ' +  name + '?');
-//         } 
-//     } else {
-//         return function(name){
-//             cosnole.log('Hello' + name + 'what do you do?');
-//         } 
-//     }
-
-// }
 
 // Closure function
 
