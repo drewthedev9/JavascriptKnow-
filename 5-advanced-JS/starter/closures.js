@@ -57,4 +57,3 @@ var teaecherQuestion = interviewQuestion('designer');
 teaecherQuestion('john');
 
 interviewQuestion('teacher')('mike');
-
