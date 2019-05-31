@@ -13,7 +13,8 @@ const UIController = (() =>{
     var DOMstrings = {
         inputType: '.add__type',
         inputDescription: '.add__description',
-        inputValue: '.add__value'
+        inputValue: '.add__value',
+        inputBtn: '.add__btn'
 
     };
 
@@ -58,7 +59,7 @@ var ctrlAddItem = function(){
 
 };
     
-document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+document.querySelector(DOM.inputBtn).addEventListener('click',ctrlAddItem);
     
 document.addEventListener('keypress', function(event){
     // keycode for the enter button, which is for older browsers.
