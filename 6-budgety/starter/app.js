@@ -40,8 +40,22 @@ return {
 // GLOBAL APP controller /w IIFE.
 var controller = (function(budgetCtrl, UIctrl){
 
-    // can now access the DOM strings
-var DOM = UIctrl.getDOMstrings();
+    var setUpEventListeners = function(){
+        // can now access the DOM strings
+        var DOM = UIctrl.getDOMstrings();
+
+        document.querySelector(DOM.inputBtn).addEventListener('click',ctrlAddItem);
+    
+        document.addEventListener('keypress', function(event){
+    // keycode for the enter button, which is for older browsers.
+    if(event.keyCode === 13|| event.which === 13){
+       
+        }
+
+    });
+}
+
+   
 
 // To avoid dry.
 var ctrlAddItem = function(){
@@ -59,15 +73,14 @@ var ctrlAddItem = function(){
 
 };
     
-document.querySelector(DOM.inputBtn).addEventListener('click',ctrlAddItem);
-    
-document.addEventListener('keypress', function(event){
-    // keycode for the enter button, which is for older browsers.
-    if(event.keyCode === 13|| event.which === 13){
-       
+return {
+    init: function(){
+        console.log('Application has started');
+        setUpEventListeners();
     }
-
-})
+};
   
     
 })(budgetController, UIController);
+
+controller.init();
