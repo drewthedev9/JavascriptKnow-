@@ -25,6 +25,30 @@ var budgetController = (function(){
         }
     }
 
+    return {
+        // onject with a functio in it = mehtod.
+        addItem : function(type, des, val){
+            var newItem;
+
+            //  Create new ID 
+
+
+            ID = data.allItems[type][data.allItems[type].length -1].id;
+
+            //  Create new item based on 'inc' or 'exp' type;
+            if (type === 'exp'){
+                newItem  = new Expense (ID, des, val);
+            } else if (type === 'inc'){
+                newItem = new Income(ID, des, val);
+            }
+           
+            // pushes the type in the if else stat
+            //  onto the areay above. ( data structure)
+            data.allItems[type].push(newitem);
+            return new Item;
+        }
+    };
+
 })();
 
 
