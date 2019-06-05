@@ -1,9 +1,33 @@
 // Budget controller;
 var budgetController = (function(){
+    // constructor toinstatntiate lots of objects.
+    // private as well because they are in the IIFE.
+    var Expense =function(id,desription,value){
+        this.id = id;
+        this.descritpion = description;
+        this.value = value;
+    }
+    // another fucntion constructor.
+    var Income = function(id,desription,value){
+        this.id = id;
+        this.descritpion = description;
+        this.value = value;
+    }
 
-
+    var data ={
+        allItems: {
+            exp: [],
+            inc: []
+        },
+        totals:{
+            exp:0,
+            inc:0
+        }
+    }
 
 })();
+
+
 
 // UI controller.
 const UIController = (() =>{
