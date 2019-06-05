@@ -2,13 +2,13 @@
 var budgetController = (function(){
     // constructor toinstatntiate lots of objects.
     // private as well because they are in the IIFE.
-    var Expense =function(id,desription,value){
+    var Expense =function(id,description,value){
         this.id = id;
-        this.descritpion = description;
+        this.description = description;
         this.value = value;
     }
     // another fucntion constructor.
-    var Income = function(id,desription,value){
+    var Income = function(id,description,value){
         this.id = id;
         this.descritpion = description;
         this.value = value;
@@ -27,13 +27,18 @@ var budgetController = (function(){
 
     return {
         // onject with a functio in it = mehtod.
+        // to add exp or inc onto a new data structure.
         addItem : function(type, des, val){
             var newItem;
 
             //  Create new ID 
 
-
-            ID = data.allItems[type][data.allItems[type].length -1].id;
+            if (data.allItems[type].length > 0){
+                ID = data.allItems[type][data.allItems[type].length -1].id;
+            } else {
+                ID = 0;
+            }
+           
 
             //  Create new item based on 'inc' or 'exp' type;
             if (type === 'exp'){
@@ -44,9 +49,15 @@ var budgetController = (function(){
            
             // pushes the type in the if else stat
             //  onto the areay above. ( data structure)
-            data.allItems[type].push(newitem);
-            return new Item;
-        }
+            data.allItems[type].push(newItem);
+
+            // return the new element.
+            return newItem;
+        },
+
+        testing:function(){
+            console.log(data);
+        } 
     };
 
 })();
@@ -107,12 +118,14 @@ var controller = (function(budgetCtrl, UIctrl){
 
 // To avoid dry.
 var ctrlAddItem = function(){
+    var input, newItem;
+
     // 1. get the filed input data
     var input = UIctrl.getInput();
-    console.log(input);
+    
 
     // 2. add the item to the budget calculator
-
+    newItem = budgetCtrl.addItem(input.type, input.description, input.value);
     // 3. add the item to the UI
 
     // 4. calculate the budget.
