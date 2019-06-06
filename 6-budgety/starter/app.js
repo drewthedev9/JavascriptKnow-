@@ -79,7 +79,8 @@ const UIController = (() =>{
 
 return {
 
-   
+    // Function when someone hits teh input key.
+    // this function acts liekthe control center.
      getInput: function() {
          return {
              type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp\
@@ -88,6 +89,15 @@ return {
              value :document.querySelector(DOMstrings.inputValue).value
          };
     },
+
+    addListItem: function (obj, type){
+
+        // creat HTML with place holder tags
+
+        // replace the place holder text witj some actual data.
+
+        // Insert the HTML into the DOM.
+    }
     // expose DOMstrings to the public.
     getDOMstrings: function(){
         return DOMstrings;
