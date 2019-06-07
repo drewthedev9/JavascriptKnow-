@@ -116,6 +116,30 @@ return {
         document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
     },
+
+    // delete the input fileds method.
+    clearFields: function(){
+        var fields, fieldsArr;
+
+       fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + 
+        DOMstrings.inputValue);
+
+        // slice mehrod on the array fileds using teh call function
+        // fields will be a list so it needs call.
+        fieldsArr = Array.prototype.slice.call(fields);
+
+        // call back function. loops through all the array and returns them
+        // to empty string
+        fieldsArr.forEach(function(current,index,array){
+            current.value = "";
+        });
+
+        // gets teh first element then puts the mouse back to inputdescripttion 
+        // element.
+        fieldsArr[0].focus();
+
+
+    },
     // expose DOMstrings to the public.
     getDOMstrings: function(){
         return DOMstrings;
@@ -157,9 +181,11 @@ var ctrlAddItem = function(){
     // 3. add the item to the UI
     UICtrl.addListItem(newItem, input.type);
 
-    // 4. calculate the budget.
+    // 4.clear thr fields;
+    UICtrl.clearFields();
+    // 5. calculate the budget.
 
-    // 5. Display teh budget on th UI.
+    // 6. Display teh budget on th UI.
 
 };
     
