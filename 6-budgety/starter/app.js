@@ -55,6 +55,7 @@ var budgetController = (function(){
             return newItem;
         },
 
+        // calls the annonymus function for testing
         testing:function(){
             console.log(data);
         } 
@@ -88,7 +89,8 @@ return {
              type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp\
             //  gets the value of of the input html elemnet.
              description:document.querySelector(DOMstrings.inputDescription).value,
-             value :document.querySelector(DOMstrings.inputValue).value
+            //  parsefloat turns the value that will be inpt into a int not a string(by default).
+             value: parseFloat( document.querySelector(DOMstrings.inputValue).value)
          };
     },
 
@@ -166,6 +168,14 @@ var controller = (function(budgetCtrl, UICtrl){
     });
 }
 
+var updateBudget = function (){
+    //1. calculate the budget
+
+    //2.return the budget 
+
+    //3.
+
+};
    
 
 // To avoid dry.
@@ -175,6 +185,7 @@ var ctrlAddItem = function(){
     // 1. get the filed input data
     var input = UICtrl.getInput();
     
+    if(input.description !== "" && !isNaN(input.value) && input.value > 0){
 
     // 2. add the item to the budget calculator
     newItem = budgetCtrl.addItem(input.type, input.description, input.value);
@@ -183,9 +194,10 @@ var ctrlAddItem = function(){
 
     // 4.clear thr fields;
     UICtrl.clearFields();
-    // 5. calculate the budget.
-
-    // 6. Display teh budget on th UI.
+    // 5. calculate and update budegt.
+    updateBudget();
+    }
+   
 
 };
     
