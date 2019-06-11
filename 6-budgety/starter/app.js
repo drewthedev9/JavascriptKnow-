@@ -12,7 +12,16 @@ var budgetController = (function(){
         this.id = id;
         this.description = description;
         this.value = value;
-    }
+    };
+
+    var calculateTotal = fucntion(type){
+        var sum = 0;
+        data.allItems[type].forEach(function(){
+            
+        })
+
+
+    };
 
     var data ={
         allItems: {
@@ -54,6 +63,15 @@ var budgetController = (function(){
             // return the new element.
             return newItem;
         },
+
+        calculateBudget : function (){
+
+            // calculate total income and expenses
+
+            // claculate the budget: income -expenses.
+
+            // calcuate the percentage of income that we suggest.
+        }, 
 
         // calls the annonymus function for testing
         testing:function(){
