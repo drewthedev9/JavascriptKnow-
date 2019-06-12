@@ -14,14 +14,17 @@ var budgetController = (function(){
         this.value = value;
     };
 
-    var calculateTotal = fucntion(type){
+    var calculateTotal = function(type){
         var sum = 0;
-        data.allItems[type].forEach(function(){
-            
+        // loops through adds total.
+        data.allItems[type].forEach(function(cur){
+            sum = sum + cur.value;
+
         })
-
-
+        // calcu;ates sum
+        data.totals[type] = sum;
     };
+    
 
     var data ={
         allItems: {
@@ -31,7 +34,9 @@ var budgetController = (function(){
         totals:{
             exp:0,
             inc:0
-        }
+        },
+        budget:0,
+        percentage:-1
     }
 
     return {
@@ -64,14 +69,34 @@ var budgetController = (function(){
             return newItem;
         },
 
-        calculateBudget : function (){
+        calculateBudget: function (){
 
             // calculate total income and expenses
-
+            calculateTotal('exp');
+            calculateTotal('inc');
             // claculate the budget: income -expenses.
+            data.budget = data.totals.inc - data.totals.exp;
 
             // calcuate the percentage of income that we suggest.
+            if (data.totals.inc > 0){
+                data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+            } else {
+                // to avoid not baing able to divide by 0; vid  lecture 86 time 19:30;
+                data.percentage = -1;
+            }
+            
+        
         }, 
+
+        // function that returns budget total.
+        getBudget: function(){
+            return{
+                budget: data.budget,
+                totalInc: data.totals.inc,
+                totalExp: data.totals.exp,
+                percentage: data.percentage
+            }
+        },
 
         // calls the annonymus function for testing
         testing:function(){
@@ -188,10 +213,11 @@ var controller = (function(budgetCtrl, UICtrl){
 
 var updateBudget = function (){
     //1. calculate the budget
-
+    budgetCtrl.calculateBudget();
     //2.return the budget 
-
+    var budget = budgetCtrl.getBudget();
     //3.
+    console.log(budget);
 
 };
    
