@@ -40,10 +40,14 @@ var budgetController = (function(){
     }
 
     return {
-        // onject with a functio in it = mehtod.
+        // object with a functio in it = mehtod.
         // to add exp or inc onto a new data structure.
         addItem : function(type, des, val){
-            var newItem;
+            var newItem, ID;
+
+            // [1 2 3 4], next ID = 6;
+            // [1 2 4 6 8], next ID = 9
+            // ID = last ID + 1 
 
             //  Create new ID 
 
@@ -70,7 +74,18 @@ var budgetController = (function(){
         },
 
         // method for deleting and Item.
-        deleteItem: function(){
+        deleteItem: function(type,id){
+            // [1 2 4 6 8]
+            // need to delete the index 
+            // example delete 6 has index of 3.
+            // using the method map which recives a fucntion.
+            // map actuallly returns a bradnew array.
+            // In this case maps over all the array and creates a new one with 
+            // all the current id's.
+            data.allItems[type].map(function(current){
+                return current.id;
+            });
+
 
         },
 
