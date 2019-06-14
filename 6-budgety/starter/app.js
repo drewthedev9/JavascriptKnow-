@@ -75,17 +75,27 @@ var budgetController = (function(){
 
         // method for deleting and Item.
         deleteItem: function(type,id){
+            var ids, index;
             // [1 2 4 6 8]
             // need to delete the index 
             // example delete 6 has index of 3.
+            // index = 3
             // using the method map which recives a fucntion.
             // map actuallly returns a bradnew array.
             // In this case maps over all the array and creates a new one with 
             // all the current id's.
-            data.allItems[type].map(function(current){
+            ids = data.allItems[type].map(function(current){
                 return current.id;
             });
 
+            // find gthe index of the ID's in the array.
+            index = ids.indexOf(id);
+            if (index !== -1) {
+                // splice removes objects.
+                // arguments for splice ( what to dleete, howmany) in this case
+                // itts teh indexes and only one item.
+                data.allItems[type].splice(index, 1);
+            } 
 
         },
 
@@ -289,7 +299,7 @@ var ctrlAddItem = function(){
 };
     
 var ctrlDeleteItem = function(event) {
-    var itemID, splitID, type, ID;
+    var itemID, splitID, type, ID ;
     // traversing the DOM to get the parent element and do bubbling.
    itemID = (event.target.parentNode.parentNode.parentNode.parentNode.id);
 
@@ -299,10 +309,12 @@ var ctrlDeleteItem = function(event) {
     //  split makes a an array with strings from the inputs. (vid 90 time 15:00).
      splitID  = itemID.split('-');
      type = splitID[0];
-     ID = splitID[1];
+    // CRUCIAL, convert the string from the split array into a nd integer.
+    
+     ID = parseInt(splitID[1]);
 
      // delete the item from the data structure.
-
+        budgetCtrl.deleteItem(type, ID);
      // 2. dleete the item form the user interface.
 
     //  3. Update and show the new budget.
