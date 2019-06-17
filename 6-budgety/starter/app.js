@@ -6,7 +6,24 @@ var budgetController = (function(){
         this.id = id;
         this.description = description;
         this.value = value;
+        this.percentage = -1;
     }
+
+    //creating a methid off the prototype of the expense constructor
+    // this method calculates it.
+    Expense.prototype. calcPercentage = function(totalIncome){
+        if (totalIncome > 0){
+            this.percentage = Math.round((this.value / totalIncome) * 100);
+
+        }else{
+            this.percentage = -1;
+        }
+    };
+    // this function returns the calculated percentage.
+    Expense.prototype.getPercentage = function() {
+        return this.percentage;
+    }
+
     // another fucntion constructor.
     var Income = function(id,description,value){
         this.id = id;
@@ -117,6 +134,21 @@ var budgetController = (function(){
             
         
         }, 
+        // function for calculating the percentages.
+        calulatePercentages: function(){
+            data.allItems.exp.forEach(function(cur){
+                cur.calcPercentage(data.totals.inc);
+            });
+        },
+
+        getPercentages: function(){
+            // map returns something and stores it in a variable while
+            // forEach fdoes not.
+            var allPerc = data.allItems.exp.map(function(cur){
+                return cur.getPercentage();
+            })
+            return allPerc;
+        },
 
         // function that returns budget total.
         getBudget: function(){
@@ -285,10 +317,11 @@ var updateBudget = function (){
 
 var updatePercentages = function(){
     //1.calaculate the percentages
-
-    2.// Read percentages from the budget controller
-
-    3.// update the UI with thenew percentages.
+    budgetCtrl.calulatePercentages();
+    //2. Read percentages from the budget controller
+    var percentages = budgetCtrl.getPercentages();
+    //3. update the UI with thenew percentages.
+    console.log(percentages);
 };
    
 
