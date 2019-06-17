@@ -183,7 +183,7 @@ return {
             html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
         } else if (type ==='exp'){
             element = DOMstrings.expensesContainer;
-            html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"></div><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
         }
         
         // replace the place holder text witj some actual data.
@@ -196,6 +196,15 @@ return {
         // Insert the HTML into the DOM.
         document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
+    },
+
+    deleteListItem: function(selectorID) {
+         // can only remove a child element in javascript.
+        // traverse dom then select the 
+        var el = document.getElementById(selectorID);
+        el.parentNode.removeChild(el);
+       
+       
     },
 
     // delete the input fileds method.
@@ -310,15 +319,14 @@ var ctrlDeleteItem = function(event) {
      splitID  = itemID.split('-');
      type = splitID[0];
     // CRUCIAL, convert the string from the split array into a nd integer.
-    
-     ID = parseInt(splitID[1]);
+    ID = parseInt(splitID[1]);
 
      // delete the item from the data structure.
         budgetCtrl.deleteItem(type, ID);
-     // 2. dleete the item form the user interface.
-
+     // 2. delete the item form the user interface.
+     UICtrl.deleteListItem(itemID);
     //  3. Update and show the new budget.
-
+      updateBudget();
    }
 };
 
