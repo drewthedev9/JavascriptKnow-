@@ -187,7 +187,8 @@ const UIController = (() =>{
         incomeLabel: '.budget__income--value',
         expensesLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
-        container: '.container'
+        container: '.container',
+        expensesPerLabel: '.item __perentage'
 
     };
 
@@ -275,6 +276,28 @@ return {
         } else {
             document.querySelector(DOMstrings.percentageLabel).textContent = ('----');
         }
+    },
+
+    displayPercentages: function(percentages) {
+
+        var fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
+
+        var nodeListForEach = function(list, callback){
+            for (var i = 0; i < List.length; i++){
+                callback(list[i],i);
+            }
+        };
+
+        nodeListForEach(fields, function(current, index){
+
+            if (percentages[index] > 0){
+                current.textContent = percentages[index] + '%';
+            } else {
+                current.textContent = percentages[index] + '%';
+            }
+            
+        });
+
     },
     // expose DOMstrings to the public.
     getDOMstrings: function(){
