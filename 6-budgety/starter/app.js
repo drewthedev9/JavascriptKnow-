@@ -192,6 +192,33 @@ const UIController = (() =>{
 
     };
 
+    var formatNumber = function(num,type){
+        var numSplit, int, dec, type;
+        // absoloute removes the sign of the number.
+        num = Math.abs(num);
+        // to fixed turns it also into a string.
+        num = num.toFixed(2);
+        // splits the number on the . and into an array.
+        numSplit = num.split('.')
+
+        int = numSplit[0];
+
+       
+        if(int.length > 3){
+            // int overrides this as we only want the excecution result.
+            // substring(substr) is getting the first number then stopping
+            // at the second.
+            // then it starts at psoiton 1 and reds 3 numbers.
+             int = int.substr(0,int.length - 3) + ',' + int.substr(int.length-3, 3)// input 2310, output 2,310.
+        }
+
+        dec = numSplit[1];
+
+        
+
+        return (type === 'exp' ? sign = '-' :sign = '+') + '' + int + '.' + dec;
+    };
+
 return {
 
     // Function when someone hits teh input key.
@@ -224,7 +251,7 @@ return {
         // the data in the method.
         newHtml = html.replace('%id%', obj.id);
         newHtml = newHtml.replace('%description%', obj.description);
-        newHtml = newHtml.replace ('%value%', obj.value);
+        newHtml = newHtml.replace ('%value%',formatNumber(obj.value,type));
         
         // Insert the HTML into the DOM.
         document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
@@ -265,10 +292,12 @@ return {
     },
 
     displayBudget: function(obj){
+        var type;
+        obj.budget > 0 ? type = 'inc' :type =  'exp';
         // obj.budegt being the budget object above.in the getBudget function.
-        document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
-        document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
-        document.querySelector(DOMstrings.expensesLabel).textContent = obj.totalExp;
+        document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type);
+        document.querySelector(DOMstrings.incomeLabel).textContent = fomatNumber(obj.totalInc, 'inc');
+        document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
        
 
         if(obj.percentage > 0){
@@ -299,6 +328,9 @@ return {
         });
 
     },
+
+    
+
     // expose DOMstrings to the public.
     getDOMstrings: function(){
         return DOMstrings;
