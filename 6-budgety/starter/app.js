@@ -296,7 +296,7 @@ return {
         obj.budget > 0 ? type = 'inc' :type =  'exp';
         // obj.budegt being the budget object above.in the getBudget function.
         document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type);
-        document.querySelector(DOMstrings.incomeLabel).textContent = fomatNumber(obj.totalInc, 'inc');
+        document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
         document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
        
 
