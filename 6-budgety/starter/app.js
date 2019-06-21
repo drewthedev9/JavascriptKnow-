@@ -331,11 +331,15 @@ return {
     },
 
     displayMonth: function(){
-        var now, year;
+        var now ,months, month, year;
         var now = new Date();
         //var christmas = new Date(2016, 11, 25);
 
-        year = now.getFullYear
+        months = ['Jan','feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        month = now.getMonth();
+
+        year = now.getFullYear();
+        document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ' ' + year;
     },
     
 
@@ -441,6 +445,8 @@ return {
     // runs the entire program.
     init: function(){
         console.log('Application has started');
+        // display month as soon as the app starts.
+        UICtrl.displayMonth();
         // resets all the values once restarting app to 0.
         UICtrl.displayBudget({
             budget: 0,
