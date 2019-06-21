@@ -188,7 +188,8 @@ const UIController = (() =>{
         expensesLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
         container: '.container',
-        expensesPercLabel: '.item__percentage'
+        expensesPercLabel: '.item__percentage',
+        dateLabel : '.budget__title--month'
 
     };
 
@@ -329,6 +330,13 @@ return {
 
     },
 
+    displayMonth: function(){
+        var now, year;
+        var now = new Date();
+        //var christmas = new Date(2016, 11, 25);
+
+        year = now.getFullYear
+    },
     
 
     // expose DOMstrings to the public.
