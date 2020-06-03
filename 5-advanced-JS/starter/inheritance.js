@@ -13,6 +13,7 @@ var Person = function(name, yearOfBirth, job) {
     this.job = job;
 }
 
+// puts calculateAge into the prototype property of person
 Person.prototype.calculateAge  = function() {
     console.log(2016 - this.yearOfBirth);
 };
