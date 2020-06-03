@@ -51,7 +51,7 @@ person.talk();
 person['name'] = 'john';*/
 
 // THIS in javascript
-//  this returns a refernce to the current object.
+//  thi returns a refernce to the current object.
 const person = {
     name: "Mosh",
     walk (){
