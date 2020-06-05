@@ -73,7 +73,7 @@ function arrayCalc (arr, fn){
         return arrRes;
 }
 
-// call back function fn -> meaning we will call teh function into teh function above 
+// call bac function fn -> meaning we will call teh function into teh function above 
 // later. in the arrRes.push(fnarr[i]).
 function calculateAge(el){
     return 2019 -el;

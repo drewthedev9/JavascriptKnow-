@@ -15,7 +15,7 @@ var Person = function(name, yearOfBirth, job){
     // }
 }
 
-// instatntiation = new instances of the Person object
+// instatantiation = new instances of the Person object
 var john = new Person('John', 1990, 'teacher');
 // "new" operator creates a new empty object - unique does all this.
 // also sets the "this" keyword to the new current empty object
