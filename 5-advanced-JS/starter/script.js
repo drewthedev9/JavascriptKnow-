@@ -174,10 +174,39 @@ interviewQuestion('teacher')('Mark'); // what subject do you teach mark
 
 // IIFE immediatley Invoked function expressions.
 
+//  Popping and pushing - The pop() method removes the last element from an array:
+ const fruits = ["Banana", "Orange", "Apple", "Mango"]
+// removes last element
+ console.log(fruits.pop());
+//  push method does the opposite adds an elmnt onto the end of an array.
 
-   
+ const fruits2 = ["Banana", "Orange", "Apple", "Mango"]
+console.log(fruits2.push("kiwi"))
+// shifting
+// Shifting is equivalent to popping, working on the first element instead of the last.
+// The shift() method removes the first array element and "shifts" all other elements to a lower index.
 
+const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruits3.shift()); 
 
+// splice adding elements
+// The first parameter (2) defines the position where new elements should be added (spliced in).
 
+// The second parameter (0) defines how many elements should be removed.
 
+// The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
 
+// The splice() method returns an array with the deleted items:
+ const fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+fruits4.splice(2, 2, "Lemon", "Kiwi");
+
+// concat() joining arrays
+
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+const myChildren = myGirls.concat(myBoys); 
+
+// slice()
+ 
+const fruits5 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);
