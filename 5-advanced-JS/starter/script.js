@@ -206,7 +206,18 @@ const myGirls = ["Cecilie", "Lone"];
 const myBoys = ["Emil", "Tobias", "Linus"];
 const myChildren = myGirls.concat(myBoys); 
 
-// slice()
+// slice() The slice() method slices out a piece of an array into a new array.
  
 const fruits5 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 const citrus = fruits.slice(1);
+
+// This example slices out a part of an array starting from array element 3 ("Apple"):
+// The slice() method can take two arguments like slice(1, 3).
+
+// The method then selects elements from the start argument, and up to (but not including) the end argument.
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(3);
+
+// sorting arrays
+
+
