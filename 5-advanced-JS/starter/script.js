@@ -219,5 +219,10 @@ var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 var citrus = fruits.slice(3);
 
 // sorting arrays
+var points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML = myArrayMax(points);
 
+function myArrayMax(arr) {
+    return Math.max.apply(null, arr);
+  }
 
