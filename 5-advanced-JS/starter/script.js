@@ -218,7 +218,7 @@ const citrus = fruits.slice(1);
 var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 var citrus = fruits.slice(3);
 
-// sorting arrays
+// sorting arrays - math.max finds hghest number in array.
 var points = [40, 100, 1, 5, 25, 10];
 document.getElementById("demo").innerHTML = myArrayMax(points);
 
