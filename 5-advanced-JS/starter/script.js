@@ -215,14 +215,36 @@ const citrus = fruits.slice(1);
 // The slice() method can take two arguments like slice(1, 3).
 
 // The method then selects elements from the start argument, and up to (but not including) the end argument.
-var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
-var citrus = fruits.slice(3);
+var fruits6 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus1 = fruits6.slice(3);
 
 // sorting arrays - math.max finds hghest number in array.
 var points = [40, 100, 1, 5, 25, 10];
-document.getElementById("demo").innerHTML = myArrayMax(points);
+console.log(myArrayMax(points));
 
 function myArrayMax(arr) {
     return Math.max.apply(null, arr);
   }
+
+
+// itterating over arrays /////
+//The forEach() method calls a function (a callback function) once for each array element.
+
+// var txt = "";
+// var numbers = [45, 4, 9, 16, 25];
+// numbers.forEach(myFunction);
+
+// function myFunction(value){
+//     txt = txt + value + "<br>";
+// }
+
+// console.log(txt);
+
+// loop my own code
+var numbers1 = [47, 4, 9, 16, 25];
+var i;
+for (i =0; i < numbers1.length; i++){
+    console.log(numbers1[i]);  
+}
+
 
