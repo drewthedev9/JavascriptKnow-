@@ -240,11 +240,95 @@ function myArrayMax(arr) {
 
 // console.log(txt);
 
-// loop my own code
+//generic loop my own code.
 var numbers1 = [47, 4, 9, 16, 25];
 var i;
 for (i =0; i < numbers1.length; i++){
     console.log(numbers1[i]);  
 }
+
+// map//////
+
+// The map() method creates a new array by performing a function on each array element.
+
+// The map() method does not execute the function for array elements without values.
+
+// The map() method does not change the original array.
+
+// creates a new aray with the function.
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value) {
+  return value * 2;
+}
+
+console.log(numbers2);
+
+// The filter() method creates a new array with array elements that passes a test.
+
+// This example creates a new array from elements with a value larger than 18:
+
+var numbersa = [45, 4, 9, 16, 25];
+var over18 = numbersa.filter(myFunction);
+
+function myFunction(value) {
+  return value > 18;
+}
+
+//The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+
+//The reduce() method works from left-to-right in the array. See also reduceRight().
+
+var numberse = [45, 4, 9, 16, 25];
+var sum = numberse.reduceRight(myFunction);
+
+function myFunction(total, value) {
+  return total + value;
+}
+
+// 
+// The indexOf() method searches an array for an element value and returns its position.
+
+// Note: The first item has position 0, the second item has position 1, and so on.
+
+// var fruits = ["Apple", "Orange", "Apple", "Mango"];
+// var a = fruits.indexOf("Apple");
+
+//scope/////////////
+// JavaScript has function scope: Each function creates a new scope.
+// Scope determines the accessibility (visibility) of these variables.
+// Variables defined inside a function are not accessible (visible) from outside the function.
+
+// locals
+function  myFunction(){
+    var carName ="vovlo";
+
+    // code here can access this.
+}
+
+// global
+  var carName ="vovlo";
+
+   // code here can access this.
+
+function  myFunction(){
+    var carName ="vovlo";
+
+    // code here can access this.
+}
+
+// the this keyword./////////////////
+//the javascript this  keyword refers to the object it belongs to.
+
+// In a method, this refers to the owner object.
+// Alone, this refers to the global object.
+// In a function, this refers to the global object.
+// In a function, in strict mode, this is undefined.
+// In an event, this refers to the element that received the event.
+// Methods like call(), and apply() can refer this to any object.
+
+
+
 
 
