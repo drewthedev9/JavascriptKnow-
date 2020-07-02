@@ -329,8 +329,35 @@ function  myFunction(){
 // Methods like call(), and apply() can refer this to any object.
 
 
+// global scope///////
+//Variables declared Globally (outside any function) have Global Scope.
+var carName = "Volvo";
 
+// code here can use carName
 
+function myFunction() {
+  // code here can also use carName
+}
 
+//function scope ///////
+//Variables declared Locally (inside a function) have Function Scope.
+// code here can NOT use carName
+
+function myFunction() {
+  var carName = "Volvo";
+  // code here CAN use carName
+}
+
+// code here can NOT use carName
+
+// var/////
+//  var can be declared and then redeclared.
+var x = 2;
+
+// Now x is 2
+ 
+var x = 3;
+
+// Now x is 3
 
 
